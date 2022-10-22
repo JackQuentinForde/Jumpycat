@@ -10,7 +10,9 @@ const FALL_SPEED = 500
 var rng = RandomNumberGenerator.new()
 var velocity = Vector2()
 var direction = null
+var dying = false
 var dead = false
+var opacity = 1
 var jumpSprite = load("res://Assets/Sprites/jumpycat.png")
 var fallSprite = load("res://Assets/Sprites/fallycat.png")
 onready var sprite = get_node("Sprite")
@@ -22,7 +24,9 @@ func _ready():
 	var colour2 = rng.randf_range(0, 1)
 	var colour3 = rng.randf_range(0, 1)
 	sprite.set_self_modulate(Color(colour1, colour2, colour3, 1))
+	dying = false
 	dead = false
+	opacity = 1
 	velocity.y = -INITIAL_VELOCITY
 
 func GetInput():
@@ -89,10 +93,10 @@ func CheckCollisions(collisionInfo):
 			collisionInfo.collider.Break()
 			$Camera2D.Shake(0.1, 1)
 		elif ("Spiked Platform" in collisionInfo.collider.name):
-			dead = true
+			dying = true
 		elif ("Spike Ball" in collisionInfo.collider.name):
 			if (collisionInfo.collider.get_node("Sprite2").visible):
-				dead = true
+				dying = true
 			else:
 				velocity.y = -JUMP_VELOCITY
 		elif ("Jumping Platform" in collisionInfo.collider.name):
@@ -101,11 +105,15 @@ func CheckCollisions(collisionInfo):
 		else:
 			velocity.y = -JUMP_VELOCITY
 
-func Die():
-	game.GameOver()
+func Die(delta):
+	opacity -= delta * 3
+	modulate.a = opacity
+	if (opacity <= -2):
+		dead = true
+		game.GameOver()
 
 func _physics_process(delta):
-	if (!dead):
+	if (!dying):
 		GetInput()
 		Move(delta)
 		ApplyGravity(delta)
@@ -114,4 +122,4 @@ func _physics_process(delta):
 		CheckCollisions(collisionInfo)
 		CheckPosition()
 	else:
-		Die()
+		Die(delta)
