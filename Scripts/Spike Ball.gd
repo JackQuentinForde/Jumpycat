@@ -15,12 +15,12 @@ func _ready():
 func move():
 	match(direction):
 		1:
+			$Sprite.flip_h = false
 			if (global_position.x >= game.maxXPosition):
-				$Sprite.flip_h = true
 				direction = 2
 		2:
+			$Sprite.flip_h = true
 			if (global_position.x <= -game.maxXPosition):
-				$Sprite.flip_h = false
 				direction = 1
 
 func _physics_process(delta):
