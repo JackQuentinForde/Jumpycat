@@ -21,5 +21,6 @@ shape = SubResource( 1 )
 one_way_collision = true
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 0, -13 )
+visible = false
+position = Vector2( 0, -6 )
 texture = ExtResource( 2 )
