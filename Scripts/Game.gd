@@ -17,8 +17,10 @@ var lastPlatformType = ""
 var platformMoveDirection = 1
 var score = 0
 onready var player = get_node("Player")
+onready var globalScript = get_node("/root/Global")
 
 func _ready():
+	$Control/CanvasLayer/Highscore.text = "HI: " + globalScript.ReadHighScore()
 	lastPlatformYPosition = 0
 	for n in 10:
 		AddBasicPlatform()
@@ -134,5 +136,6 @@ func AddJumpPlatform():
 	get_parent().call_deferred("add_child", newPlatform)
 			
 func GameOver():
+	globalScript.SaveScore(str(score))
 	get_tree().change_scene("res://Scenes/Game Over.tscn")
 	

@@ -9,8 +9,6 @@ var yPosition = 0
 
 func _ready():
 	$AnimationPlayer.play("spike")
-	if ($Sprite2.visible):
-		pass
 	yPosition = global_position.y
 	direction = get_parent().get_node("Game").platformMoveDirection
 
@@ -18,9 +16,11 @@ func move():
 	match(direction):
 		1:
 			if (global_position.x >= game.maxXPosition):
+				$Sprite.flip_h = true
 				direction = 2
 		2:
 			if (global_position.x <= -game.maxXPosition):
+				$Sprite.flip_h = false
 				direction = 1
 
 func _physics_process(delta):
