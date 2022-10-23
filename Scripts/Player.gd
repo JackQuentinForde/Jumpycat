@@ -87,7 +87,7 @@ func CheckCollisions(collisionInfo):
 			if (collisionInfo.collider.boostChance == 1):
 				collisionInfo.collider.get_node("Sprite2").visible = false
 				velocity.y = -JUMP_VELOCITY * 3
-				$JumpSound.play()
+				$BoostSound.play()
 			else:
 				velocity.y = -JUMP_VELOCITY
 				$JumpSound.play()
