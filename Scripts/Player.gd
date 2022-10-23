@@ -12,6 +12,7 @@ var velocity = Vector2()
 var direction = null
 var dying = false
 var dead = false
+var deathSoundPlayed = false
 var opacity = 1
 var jumpSprite = load("res://Assets/Sprites/jumpycat.png")
 var fallSprite = load("res://Assets/Sprites/fallycat.png")
@@ -27,6 +28,7 @@ func _ready():
 	sprite.set_self_modulate(Color(colour1, colour2, colour3, 1))
 	dying = false
 	dead = false
+	deathSoundPlayed = false
 	opacity = 1
 	velocity.y = -INITIAL_VELOCITY
 
@@ -113,6 +115,9 @@ func CheckCollisions(collisionInfo):
 			$JumpSound.play()
 
 func Die(delta):
+	if (!deathSoundPlayed):
+		deathSoundPlayed = true
+		$DeathSound.play()
 	opacity -= delta * 3
 	modulate.a = opacity
 	if (opacity <= -3):
