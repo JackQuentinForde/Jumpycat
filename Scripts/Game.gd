@@ -31,9 +31,9 @@ func _physics_process(_delta):
 	if (-player.global_position.y > globalScript.score):
 		globalScript.score = int(-player.global_position.y)
 	$Control/CanvasLayer/Score.text = str(globalScript.score)
-	if (player.global_position.y < lastPlatformYPosition + 150):
+	if (player.global_position.y < lastPlatformYPosition + 200):
 		AddPlatform()
-	if (player.global_position.y > lastPlatformYPosition + 1000):
+	if (player.global_position.y > lastPlatformYPosition + 1500):
 		GameOver()
 		
 func AddPlatform():

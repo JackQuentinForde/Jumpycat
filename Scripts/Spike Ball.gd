@@ -26,7 +26,7 @@ func move():
 func _physics_process(delta):
 	move()
 	if (!player.dead):
-		if ((player.global_position.y < global_position.y - (game.maxYPosition - 100)) or (player.global_position.y > global_position.y + game.maxYPosition)) :
+		if ((player.global_position.y < global_position.y - game.maxYPosition) or (player.global_position.y > global_position.y + (game.maxYPosition + 200))):
 			queue_free()
 	else:
 		queue_free()
