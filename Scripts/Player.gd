@@ -109,7 +109,7 @@ func CheckCollisions(collisionInfo):
 func Die(delta):
 	opacity -= delta * 3
 	modulate.a = opacity
-	if (opacity <= -2):
+	if (opacity <= -3):
 		dead = true
 		game.GameOver()
 

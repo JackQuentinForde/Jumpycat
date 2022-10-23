@@ -10,6 +10,7 @@ var boostChance
 var rng = RandomNumberGenerator.new()
 
 func _ready():
+	$AnimationPlayer.play("spin")
 	rng.randomize()
 	boostChance = rng.randi_range(1, 8)
 	if (boostChance == 1):

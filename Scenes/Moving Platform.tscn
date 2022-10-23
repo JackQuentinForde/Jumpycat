@@ -1,11 +1,29 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Moving Platform.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/movingplatform.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/mushroom.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/movingplatform2.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11, 0.25 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "spin"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="Moving Platform" type="KinematicBody2D"]
 collision/safe_margin = 0.001
@@ -23,3 +41,10 @@ one_way_collision = true
 visible = false
 position = Vector2( 0, -5 )
 texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+z_index = 1
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/spin = SubResource( 2 )
