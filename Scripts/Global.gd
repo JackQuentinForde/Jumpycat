@@ -2,6 +2,7 @@ extends Node
 
 var saveGame = File.new()
 var savePath = "user://jcHighscore.save"
+var score = 0
 
 func ReadHighScore():
 	saveGame.open(savePath, File.READ)

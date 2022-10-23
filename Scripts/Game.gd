@@ -15,7 +15,6 @@ var lastPlayerYPosition
 var lastPlatformYPosition
 var lastPlatformType = ""
 var platformMoveDirection = 1
-var score = 0
 onready var player = get_node("Player")
 onready var globalScript = get_node("/root/Global")
 
@@ -26,11 +25,12 @@ func _ready():
 		AddBasicPlatform()
 	rng.randomize()
 	platformMoveDirection = rng.randi_range(1, 2)
+	globalScript.score = 0
 	
 func _physics_process(_delta):
-	if (-player.global_position.y > score):
-		score = int(-player.global_position.y)
-	$Control/CanvasLayer/Score.text = str(score)
+	if (-player.global_position.y > globalScript.score):
+		globalScript.score = int(-player.global_position.y)
+	$Control/CanvasLayer/Score.text = str(globalScript.score)
 	if (player.global_position.y < lastPlatformYPosition + 150):
 		AddPlatform()
 	if (player.global_position.y > lastPlatformYPosition + 1000):
@@ -136,6 +136,6 @@ func AddJumpPlatform():
 	get_parent().call_deferred("add_child", newPlatform)
 			
 func GameOver():
-	globalScript.SaveScore(str(score))
+	globalScript.SaveScore(str(globalScript.score))
 	get_tree().change_scene("res://Scenes/Game Over.tscn")
 	

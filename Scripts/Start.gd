@@ -2,10 +2,10 @@ extends Control
 
 var xPosition = ProjectSettings.get_setting("display/window/size/width") / 2
 var yPosition = ProjectSettings.get_setting("display/window/size/height") / 2
+onready var globalScript = get_node("/root/Global")
 
 func _ready():
-	$"Start".margin_left = xPosition - ($"Start".rect_size.x / 2)
-	$"Start".margin_top = yPosition - ($"Start".rect_size.y / 2)
+	$CanvasLayer/Highscore.text = "HI: " + globalScript.ReadHighScore()
 
 func _input(event):
 	if (event is InputEventKey or event is InputEventJoypadButton or event is InputEventScreenTouch) and event.pressed:
