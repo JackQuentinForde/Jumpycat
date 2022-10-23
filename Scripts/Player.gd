@@ -87,10 +87,13 @@ func CheckCollisions(collisionInfo):
 			if (collisionInfo.collider.boostChance == 1):
 				collisionInfo.collider.get_node("Sprite2").visible = false
 				velocity.y = -JUMP_VELOCITY * 3
+				$JumpSound.play()
 			else:
 				velocity.y = -JUMP_VELOCITY
+				$JumpSound.play()
 		elif ("Breaking Platform" in collisionInfo.collider.name):
 			velocity.y = -JUMP_VELOCITY
+			$JumpSound.play()
 			collisionInfo.collider.Break()
 			$Camera2D.Shake(0.1, 1)
 		elif ("Spiked Platform" in collisionInfo.collider.name):
@@ -100,11 +103,14 @@ func CheckCollisions(collisionInfo):
 				dying = true
 			else:
 				velocity.y = -JUMP_VELOCITY
+				$JumpSound.play()
 		elif ("Jumping Platform" in collisionInfo.collider.name):
 			velocity.y = -JUMP_VELOCITY * 2
+			$JumpSound.play()
 			collisionInfo.collider.Spring()
 		else:
 			velocity.y = -JUMP_VELOCITY
+			$JumpSound.play()
 
 func Die(delta):
 	opacity -= delta * 3
