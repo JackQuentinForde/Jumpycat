@@ -15,6 +15,7 @@ var dead = false
 var opacity = 1
 var jumpSprite = load("res://Assets/Sprites/jumpycat.png")
 var fallSprite = load("res://Assets/Sprites/fallycat.png")
+var maxXPosition = ProjectSettings.get_setting("display/window/size/width") / 2
 onready var sprite = get_node("Sprite")
 onready var game = get_parent()
 
@@ -75,10 +76,10 @@ func SetSprite():
 			sprite.set_texture(jumpSprite)
 			
 func CheckPosition():
-	if (global_position.x > game.maxXPosition):
-		global_position.x = -game.maxXPosition
-	if (global_position.x < -game.maxXPosition):
-		global_position.x = game.maxXPosition
+	if (global_position.x > maxXPosition):
+		global_position.x = -maxXPosition
+	if (global_position.x < -maxXPosition):
+		global_position.x = maxXPosition
 
 func CheckCollisions(collisionInfo):
 	if (collisionInfo):

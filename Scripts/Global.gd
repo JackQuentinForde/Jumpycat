@@ -12,9 +12,9 @@ func ReadHighScore():
 		return data
 	return "0"
 
-func SaveScore(score):
+func SaveScore():
 	var highScore = ReadHighScore()
 	if (int(score) > int(highScore)):
 		saveGame.open(savePath, File.WRITE)
-		saveGame.store_string(score)
+		saveGame.store_string(str(score))
 		saveGame.close()

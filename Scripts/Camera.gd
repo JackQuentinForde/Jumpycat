@@ -5,10 +5,11 @@ var default_offset = offset
 onready var game = get_parent().get_parent()
 onready var tween = $Tween
 onready var timer = $Timer
+var maxXPosition = ProjectSettings.get_setting("display/window/size/width") / 2
 
 func _ready():
-	limit_left = -game.maxXPosition
-	limit_right = game.maxXPosition
+	limit_left = -maxXPosition
+	limit_right = maxXPosition
 	set_process(false)
 	randomize()
 	

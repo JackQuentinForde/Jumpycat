@@ -136,6 +136,6 @@ func AddJumpPlatform():
 	get_parent().call_deferred("add_child", newPlatform)
 			
 func GameOver():
-	globalScript.SaveScore(str(globalScript.score))
+	globalScript.SaveScore()
 	get_tree().change_scene("res://Scenes/Game Over.tscn")
 	
