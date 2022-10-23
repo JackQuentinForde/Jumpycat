@@ -31,6 +31,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -133.0
 margin_bottom = 14.0
+grow_horizontal = 0
 theme = SubResource( 6 )
 custom_fonts/font = SubResource( 7 )
 text = "HI: 99999999999999"

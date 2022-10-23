@@ -62,6 +62,13 @@ func Move(var delta):
 			velocity.x += ACCEL * delta
 			if (velocity.x > 0):
 				velocity.x = 0
+				
+func MoveAndroid(delta):
+		velocity.x = Input.get_accelerometer().normalized().x * ACCEL
+		if (velocity.x > MAX_SPEED):
+				velocity.x = MAX_SPEED
+		elif (velocity.x < -MAX_SPEED):
+			velocity.x = -MAX_SPEED
 		
 func ApplyGravity(var delta):
 	if (velocity.y < FALL_SPEED):
@@ -126,8 +133,9 @@ func Die(delta):
 
 func _physics_process(delta):
 	if (!dying):
-		GetInput()
-		Move(delta)
+		#GetInput()
+		#Move(delta)
+		MoveAndroid(delta)
 		ApplyGravity(delta)
 		SetSprite()
 		var collisionInfo = move_and_collide(velocity * delta)
