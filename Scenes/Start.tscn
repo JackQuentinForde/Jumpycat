@@ -49,25 +49,20 @@ margin_bottom = 10.5
 custom_fonts/font = SubResource( 1 )
 text = "Start"
 
+[node name="Jumpycat" type="Label" parent="CanvasLayer"]
+margin_left = 62.0
+margin_top = 186.0
+margin_right = 238.0
+margin_bottom = 214.0
+custom_fonts/font = SubResource( 8 )
+text = "JumpyCat"
+
 [node name="Button" type="Button" parent="CanvasLayer"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -40.0
+margin_top = 360.0
+margin_right = 300.0
+margin_bottom = 400.0
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0.498039, 0.498039, 0.498039, 1 )
 text = "Start"
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -88.0
-margin_top = -14.0
-margin_right = 88.0
-margin_bottom = 14.0
-custom_fonts/font = SubResource( 8 )
-text = "JumpyCat"
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]

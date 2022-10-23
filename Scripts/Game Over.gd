@@ -8,6 +8,5 @@ func _ready():
 	$CanvasLayer/Highscore.text = "HI: " + globalScript.ReadHighScore()
 	$CanvasLayer/Score.text = str(globalScript.score)
 
-func _input(event):
-	if (event is InputEventKey or event is InputEventJoypadButton or event is InputEventScreenTouch) and event.pressed:
-		get_tree().change_scene("res://Scenes/Game.tscn")
+func _on_Button_pressed():
+	get_tree().change_scene("res://Scenes/Game.tscn")
