@@ -12,7 +12,9 @@ config_version=4
 
 config/name="Jumpycat"
 run/main_scene="res://Scenes/Start.tscn"
-config/icon="res://icon.png"
+boot_splash/bg_color=Color( 0.498039, 0.498039, 0.498039, 1 )
+config/icon="res://jumpycatIcon.png"
+config/windows_native_icon="res://jumpycatIcon.ico"
 
 [autoload]
 

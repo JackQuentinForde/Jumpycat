@@ -90,7 +90,7 @@ func CheckCollisions(collisionInfo):
 				$JumpSound.play()
 		elif ("Jumping Platform" in collisionInfo.collider.name):
 			velocity.y = -JUMP_VELOCITY * 2
-			$JumpSound.play()
+			$SpringSound.play()
 			collisionInfo.collider.Spring()
 		else:
 			velocity.y = -JUMP_VELOCITY
