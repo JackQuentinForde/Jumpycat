@@ -31,39 +31,8 @@ func _ready():
 	deathSoundPlayed = false
 	opacity = 1
 	velocity.y = -INITIAL_VELOCITY
-
-#func GetInput():
-#	if (Input.is_action_pressed('ui_right')):
-#		get_node("Sprite").flip_h = false
-#		direction = "right"
-#	elif (Input.is_action_pressed('ui_left')):
-#		get_node("Sprite").flip_h = true
-#		direction = "left"
-#	else:
-#		direction = null
-		
-#func Move(var delta):
-#	if (direction == "right"):
-#		if (velocity.x < MAX_SPEED):
-#			velocity.x += ACCEL * delta
-#			if (velocity.x > MAX_SPEED):
-#				velocity.x = MAX_SPEED
-#	elif (direction == "left"):
-#		if (velocity.x > -MAX_SPEED):
-#			velocity.x -= ACCEL * delta
-#			if (velocity.x < -MAX_SPEED):
-#				velocity.x = -MAX_SPEED
-#	else:
-#		if (velocity.x > 0):
-#			velocity.x -= ACCEL * delta
-#			if (velocity.x < 0):
-#				velocity.x = 0
-#		if (velocity.x < 0):
-#			velocity.x += ACCEL * delta
-#			if (velocity.x > 0):
-#				velocity.x = 0
 				
-func MoveAndroid(delta):
+func Move(delta):
 		velocity.x = Input.get_accelerometer().normalized().x * ACCEL
 		
 		if (velocity.x > 49):
@@ -139,9 +108,7 @@ func Die(delta):
 
 func _physics_process(delta):
 	if (!dying):
-		#GetInput()
-		#Move(delta)
-		MoveAndroid(delta)
+		Move(delta)
 		ApplyGravity(delta)
 		SetSprite()
 		var collisionInfo = move_and_collide(velocity * delta)
