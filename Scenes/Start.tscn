@@ -23,9 +23,10 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Highscore" type="Label" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_right = 1.0
+anchor_left = 0.96
+anchor_right = 0.96
 margin_left = -133.0
+margin_top = 10.0
 margin_bottom = 14.0
 theme = SubResource( 6 )
 custom_fonts/font = SubResource( 7 )
