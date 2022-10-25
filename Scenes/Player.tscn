@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/jumpycat.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Sounds/Super Mario Jump.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Sounds/Death Sound.wav" type="AudioStream" id=6]
 [ext_resource path="res://Assets/Sounds/Mario Jump Higher.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Sounds/Break Sound.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 1 )
@@ -51,5 +52,8 @@ bus = "Delay"
 
 [node name="SpringSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+
+[node name="BreakSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 
 [connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_Timer_timeout"]

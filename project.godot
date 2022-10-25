@@ -22,8 +22,8 @@ Global="*res://Scripts/Global.gd"
 
 [display]
 
-window/size/width=300
-window/size/height=400
+window/size/width=200
+window/size/height=300
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"

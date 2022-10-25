@@ -77,7 +77,7 @@ func CheckCollisions(collisionInfo):
 				$JumpSound.play()
 		elif ("Breaking Platform" in collisionInfo.collider.name):
 			velocity.y = -JUMP_VELOCITY
-			$JumpSound.play()
+			$BreakSound.play()
 			collisionInfo.collider.Break()
 			$Camera2D.Shake(0.1, 1)
 		elif ("Spiked Platform" in collisionInfo.collider.name):
