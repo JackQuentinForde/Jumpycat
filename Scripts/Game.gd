@@ -113,7 +113,7 @@ func AddSpikedPlatform():
 	
 func AddSpikedBall():
 	rng.randomize()
-	var x = rng.randi_range(-(maxXPosition - 11), maxXPosition - 11)
+	var x = rng.randi_range(-(maxXPosition - 10), maxXPosition - 10)
 	var newPlatform = spikedBall.instance()
 	newPlatform.global_position = Vector2(x, lastPlatformYPosition - 50)
 	lastPlatformYPosition = newPlatform.position.y

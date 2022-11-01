@@ -23,10 +23,10 @@ func _ready():
 func move():
 	match(direction):
 		1:
-			if (global_position.x >= (game.maxXPosition - 10)):
+			if (global_position.x >= (game.maxXPosition - 11)):
 				direction = 2
 		2:
-			if (global_position.x <= -(game.maxXPosition - 10)):
+			if (global_position.x <= -(game.maxXPosition - 11)):
 				direction = 1
 
 func _physics_process(delta):
