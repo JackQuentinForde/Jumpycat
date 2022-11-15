@@ -3,4 +3,4 @@ Whirlybird clone developed in Godot Engine. Uses the phone accelerometer to cont
 
 Known Bugs:
   - It is possible to push moving platforms if the player collides with them at the peak of their jump.
-  - Sometimes double the intended amount of platforms spawn at the start of the game.
+  - Sometimes (rarely) double the intended amount of platforms spawn at the start of the game.
